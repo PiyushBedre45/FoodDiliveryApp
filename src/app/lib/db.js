@@ -1,5 +1,5 @@
 
 
-const { username, password } = process.env;
+const { password } = process.env;
 
-export const connectionstr = `mongodb+srv://${username}:${password}@fooddeliveryapp.bwzkx.mongodb.net/restoDB?retryWrites=true&w=majority&appName=FoodDeliveryApp`
+export const connectionstr = `mongodb+srv://piyubedre45:${password}@fooddeliveryapp.bwzkx.mongodb.net/restoDB?retryWrites=true&w=majority&appName=FoodDeliveryApp`
