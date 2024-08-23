@@ -27,5 +27,5 @@ export async function POST(request) {
     const users = await data.save()
     console.log(data);
 
-    return NextResponse.json({ success: true, users })
+    return NextResponse.json({ success: true, result: users })
 }
