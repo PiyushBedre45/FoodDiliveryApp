@@ -19,13 +19,23 @@ export async function GET() {
 export async function POST(request) {
     const userDetails = await request.json();
     console.log(userDetails);
-
     await mongoose.connect(connectionstr, { useNewUrlParser: true })
+    let users;
+    let success = false;
+    if (userDetails.login) {
+        users = await User.findOne({ email: userDetails.email, password: userDetails.password })
+        if (users) {
+            success = true;
+        }
+    }
+    else {
 
-    const data = new User(userDetails);
+        const data = new User(userDetails);
+        users = await data.save()
+        if (users) {
+            success = true;
+        }
+    }
 
-    const users = await data.save()
-    console.log(data);
-
-    return NextResponse.json({ success: true, result: users })
+    return NextResponse.json({ success, result: users })
 }

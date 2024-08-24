@@ -45,8 +45,6 @@ const UserRegister = () => {
                 <button type="submit">click</button>
             </form>
 
-            <h1>{pathname}</h1>
-
         </>
     )
 }
