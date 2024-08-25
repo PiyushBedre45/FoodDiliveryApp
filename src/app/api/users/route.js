@@ -10,7 +10,6 @@ const { NextResponse } = require("next/server");
 export async function GET() {
     await mongoose.connect(connectionstr, { useNewUrlParser: true })
     const users = await User.find();
-
     return NextResponse.json({ success: true, users })
 }
 
@@ -24,6 +23,7 @@ export async function POST(request) {
     let success = false;
     if (userDetails.login) {
         users = await User.findOne({ email: userDetails.email, password: userDetails.password })
+        console.log(" user :", users)
         if (users) {
             success = true;
         }

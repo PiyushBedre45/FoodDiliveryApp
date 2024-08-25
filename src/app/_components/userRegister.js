@@ -23,9 +23,12 @@ const UserRegister = () => {
     const onSubmit = async (event) => {
         console.log(name, email, password)
         event.preventDefault()
-        const response = await axios.post(`http://localhost:3000/api/users`, {
-            name, email, password
-        });
+        const userData = {
+            name,
+            email,
+            password
+        }
+        const response = await axios.post(`http://localhost:3000/api/users`, userData);
         if (response.data.success) {
             const { result } = response.data
             delete result.password

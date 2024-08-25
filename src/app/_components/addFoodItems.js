@@ -9,10 +9,11 @@ const AddFoodItems = () => {
 
     const addItems = async (e) => {
         e.preventDefault();
-        console.log(name, description, price)
-        const response = await axios.post('http://localhost:3000/api/foodItems', {
+        const foodData = {
             name, description, price
-        });
+        }
+        console.log(name, description, price)
+        const response = await axios.post('http://localhost:3000/api/foodItems', foodData);
         // const { result } = response.data;
         console.log("res :", response);
         if (response.data.success) {

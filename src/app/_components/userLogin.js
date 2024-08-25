@@ -10,7 +10,12 @@ const UserLogin = () => {
     const router = useRouter();
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post(`http://localhost:3000/api/users`, { email, password, login: true })
+        const userData = {
+            email,
+            password,
+            login: true
+        }
+        const response = await axios.post(`http://localhost:3000/api/users`, userData)
 
 
         if (response.data.success) {
@@ -22,7 +27,6 @@ const UserLogin = () => {
         }
         else {
             alert(" User not found , plz do register");
-
         }
     }
 
@@ -36,5 +40,4 @@ const UserLogin = () => {
         </>
     )
 }
-
 export default UserLogin
