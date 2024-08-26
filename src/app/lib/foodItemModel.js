@@ -6,14 +6,24 @@ const foodItemSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    price: {
+    description: {
         type: String,
         required: true
     },
-    desrciption: {
+    price: {
+        type: Number,
+        required: true
+    },
+    image: {
         type: String,
-        required: true,
-        unique: true
+        required: true
+    },
+    resto_id: {
+        type: mongoose.Schema.Types.ObjectId,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 })
 

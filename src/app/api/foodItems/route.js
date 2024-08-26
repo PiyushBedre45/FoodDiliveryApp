@@ -12,9 +12,13 @@ export async function GET() {
 export async function POST(request) {
     const foodItems = await request.json();
     console.log(foodItems);
+    let success = false;
     await mongoose.connect(connectionstr, { useNewUrlParser: true });
     const data = new FoodItems(foodItems)
     const food = await data.save()
-    return NextResponse.json({ success: true, result: food })
+    if (food) {
+        success = true;
+    }
+    return NextResponse.json({ success, result: food })
 }
 
