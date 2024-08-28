@@ -8,21 +8,21 @@ const Navbar = () => {
     const [details, setDetails] = useState();
 
     const router = useRouter();
-    // const pathName = usePathname();
-    // const data = localStorage.getItem("userDetails")
+    const pathName = usePathname();
+    const data = localStorage.getItem("userDetails")
 
-    // useEffect(() => {
-    //     if (!data && pathName == '/') {
-    //         router.push('/auth/registration')
-    //     }
-    //     else if (data && pathName == "/auth/registration") {
-    //         router.push("/")
+    useEffect(() => {
+        if (!data && pathName == '/') {
+            router.push('/auth/registration')
+        }
+        else if (data && pathName == "/auth/registration") {
+            router.push("/")
 
-    //     }
-    //     else {
-    //         setDetails(JSON.parse(data));
-    //     }
-    // }, [])
+        }
+        else {
+            setDetails(JSON.parse(data));
+        }
+    }, [])
 
     const handleLogout = () => {
         localStorage.removeItem("userDetails");
