@@ -10,12 +10,9 @@ export default function Home() {
 
   return (
     <>
-      {/* <h1>hi piyu</h1> */}
-      <Link href={'/auth/registration'}><h1>registration</h1></Link>
       <Navbar />
-      <h1>{pathName}</h1>
       <AddFoodItems />
-      <RestoRegister />
+      {/* <RestoRegister /> */}
     </>
   );
 }

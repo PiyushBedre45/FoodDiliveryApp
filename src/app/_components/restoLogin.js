@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 
-const RestoRegister = () => {
+const RestoLogin = () => {
 
     // All useState hooks
     const [email, setEmail] = useState('');
@@ -159,4 +159,4 @@ const RestoRegister = () => {
     )
 }
 
-export default RestoRegister;
+export default RestoLogin;
