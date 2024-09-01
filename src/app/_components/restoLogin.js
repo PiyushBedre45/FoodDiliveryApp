@@ -144,7 +144,7 @@ const RestoLogin = () => {
                                 </div> */}
                             {/* </div> */}
                             <button type='submit' className="border-2 border-white w-[80%] h-[36px] rounded-md bg-[#e84465] mt-[5px] text-[#ffffff] ">
-                                Register
+                                Login
                             </button>
                             <h1 className='mt-[10px]'>
                                 If you don't have an account!

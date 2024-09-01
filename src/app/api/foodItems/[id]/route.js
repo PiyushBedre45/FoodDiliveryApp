@@ -10,3 +10,10 @@ export async function GET(req, res) {
     const result = await FoodItems.find({ resto_id: id });
     return NextResponse.json({ success: true, result })
 }
+
+export async function DELETE(req, res) {
+    const id = res.params.id;
+    console.log(id);
+    await mongoose.connect(connectionstr, { useNewUrlParser: true });
+    return NextResponse.json({ success: true, message: "Item Delete" })
+}

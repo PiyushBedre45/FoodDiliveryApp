@@ -116,7 +116,7 @@ const UserRegister = () => {
                             </button>
                             <h1 className='mt-[10px]'>
                                 If you have an Account!
-                                <Link href={'/restoAuth/login'}><span className="text-[#11a58d]"> Login</span></Link>
+                                <Link href={'/auth/login'}><span className="text-[#11a58d]"> Login</span></Link>
                             </h1>
                         </div>
                     </form>
