@@ -15,6 +15,7 @@ const RestoRegister = () => {
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
     const [ownerName, setOwnerName] = useState('');
+    const [city, setCity] = useState('');
 
     const [error, setError] = useState(false)
 
@@ -26,6 +27,7 @@ const RestoRegister = () => {
 
     // Handle form submission
     const handleSubmit = async (e) => {
+        console.log(city)
         e.preventDefault();
         if (!email || !password || !address || !restaurantName || !phone || !ownerName) {
             setError(true)
@@ -34,9 +36,6 @@ const RestoRegister = () => {
         else {
             setError(false)
         }
-
-
-        console.log(password)
         const restaurantData = {
             name: restaurantName,
             address,
@@ -44,6 +43,7 @@ const RestoRegister = () => {
             email,
             ownerName,
             password,
+            city,
             registrationDate: new Date()
         };
         console.log(restaurantData);
@@ -75,7 +75,7 @@ const RestoRegister = () => {
 
                             <div className=' w-[80%] mx-auto'>
                                 {
-                                    error && (!email || !password || !address || !restaurantName || !phone || !ownerName) && <span className='text-red-600'>Fill all the imformation !!</span>
+                                    error && (!email || !password || !address || !restaurantName || !phone || !ownerName || city) && <span className='text-red-600'>Fill all the imformation !!</span>
                                 }
                             </div>
                             {/* Owner Name */}
@@ -129,6 +129,7 @@ const RestoRegister = () => {
 
                                 />
                             </div>
+
                             <div className=' flex w-[80%] gap-2  ' >
                                 {/* Phone */}
 
@@ -144,19 +145,32 @@ const RestoRegister = () => {
 
                                     />
                                 </div>
-                                {/* Address */}
+                                {/* City */}
                                 <div className="flex flex-col">
 
                                     <input
-                                        className={error && !address ? "mx-auto w-[100%] h-[30px] border-2 p-4  border-[#e84465] rounded-sm" : "mx-auto w-[100%] h-[30px] border-2 p-4  border-[#gdfgg] rounded-sm"}
+                                        className={error && !city ? "mx-auto w-[100%] h-[30px] border-2 p-4  border-[#e84465] rounded-sm" : "mx-auto w-[100%] h-[30px] border-2 p-4  border-[#gdfgg] rounded-sm"}
                                         type="name"
                                         name="city"
-                                        placeholder="Address"
-                                        value={address}
-                                        onChange={(e) => setAddress(e.target.value)}
+                                        placeholder="City"
+                                        value={city}
+                                        onChange={(e) => setCity(e.target.value)}
 
                                     />
                                 </div>
+                            </div>
+                            {/* Address*/}
+                            <div className=" w-[80%] flex flex-col ">
+
+                                <input
+                                    className={error && !address ? "mx-auto w-[100%] h-[30px] border-2 p-4  border-[#e84465] rounded-sm" : "mx-auto w-[100%] h-[30px] border-2 p-4  border-[#gdfgg] rounded-sm"}
+                                    type="name"
+                                    name="city"
+                                    placeholder="Address"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+
+                                />
                             </div>
                             <button type='submit' className="border-2 border-white w-[80%] h-[36px] rounded-md bg-[#e84465] mt-[5px] text-[#ffffff] ">
                                 Register
