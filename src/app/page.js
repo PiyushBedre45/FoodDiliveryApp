@@ -16,6 +16,7 @@ export default function Home() {
   const [location, setLocation] = useState([]);
   const [selectLocation, setSelectLocation] = useState('');
   const [showLocations, setShowLocations] = useState(false);
+  const [restaurents, setRestaurents] = useState([]);
 
   const searchLocation = async () => {
     const response = await axios.get(`http://localhost:3000/api/customer/location`)
@@ -25,10 +26,27 @@ export default function Home() {
   const handleListItem = (item) => {
     setSelectLocation(item)
     setShowLocations(false)
+    allRestaurent({ location: item })
+  }
+
+
+  const allRestaurent = async (params) => {
+    let url = `http://localhost:3000/api/customer`;
+    if (params?.location) {
+      url = url + "?location=" + params.location;
+      console.log(url)
+    }
+    else if (params?.restaurent) {
+      url = url + "?restaurent=" + params.restaurent;
+    }
+    const response = await axios.get(url);
+    setRestaurents(response.data.result);
+    console.log(response.data.result);
   }
 
   useEffect(() => {
     searchLocation();
+    allRestaurent();
   }, [])
 
   return (
@@ -62,7 +80,8 @@ export default function Home() {
                 ))
               }
             </ul>
-            <input className="w-[65%] h-full pl-10 rounded-md" type="text" placeholder="Select Food Items" />
+            <input className="w-[65%] h-full pl-10 rounded-md" type="text" placeholder="Select Food Items"
+              onChange={(e) => allRestaurent({ restaurent: e.target.value })} />
           </div>
           <img
             src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
@@ -70,6 +89,26 @@ export default function Home() {
           /> {/* Background Image */}
         </div>
       </div>
+
+      {/* All Restaurent */}
+      <div className=' w-full mt-[40px]'>
+        <div className='  w-[95%] mx-auto flex gap-8'>
+          {
+            restaurents.map((resto, index) => (
+              <>
+                <div className=' bg-[#ffcaca]'>
+                  <h1>{resto.name}</h1>
+                  <h2>{resto.phone}</h2>
+                  <h2>{resto.city}</h2>
+                  <h2>{resto.address}</h2>
+                </div>
+              </>
+            ))
+          }
+        </div>
+      </div>
+
+
     </>
   );
 }
