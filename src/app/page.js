@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import Navbar from "./_components/navbar";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import AddFoodItems from "./_components/addFoodItems";
 import RestoRegister from "./_components/restoRegister";
 import Dashboard from "./_components/dashboard";
@@ -10,13 +10,15 @@ import axios from "axios";
 
 export default function Home() {
   const pathName = usePathname();
-  // const [select, setSelect] = useState(false);
+  const [select, setSelect] = useState(false);
 
   // Location Select Box
   const [location, setLocation] = useState([]);
   const [selectLocation, setSelectLocation] = useState('');
   const [showLocations, setShowLocations] = useState(false);
   const [restaurents, setRestaurents] = useState([]);
+
+  const router = useRouter();
 
   const searchLocation = async () => {
     const response = await axios.get(`http://localhost:3000/api/customer/location`)
@@ -53,16 +55,14 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* <button onClick={() => setSelect(!select)}>
+      <button onClick={() => setSelect(!select)}>
         {
           select ? "Dashboard" : "Add product"
         }
       </button>
       {
         select ? (<AddFoodItems />) : (<Dashboard />)
-        }
-        
-        <RestoRegister /> */}
+      }
       <div className="w-full h-[500px] mt-10">
         <div className="w-[95%] mx-auto h-full relative flex items-center justify-center">
           <div className="absolute bg-[#2b2b2b6a]  w-full h-full" ></div>
@@ -96,7 +96,7 @@ export default function Home() {
           {
             restaurents.map((resto, index) => (
               <>
-                <div className=' bg-[#ffcaca]'>
+                <div className=' bg-[#ffcaca]' onClick={() => router.push(`explore/${resto.name}`)}>
                   <h1>{resto.name}</h1>
                   <h2>{resto.phone}</h2>
                   <h2>{resto.city}</h2>
