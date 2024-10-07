@@ -5,3 +5,19 @@
 *:focus {
   outline: none;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Paytone+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Almarai&family=Belanosima&family=Comfortaa&family=Dancing+Script:wght@400;500&family=Libre+Caslon+Text&family=Luckiest+Guy&family=Noto+Serif:ital,wght@1,300&family=Patua+One&family=Red+Hat+Display&family=Roboto+Slab&family=Titan+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Almarai&family=Belanosima&family=Comfortaa&family=DM+Sans:opsz,wght@9..40,300&family=Dancing+Script:wght@400;500&family=Libre+Caslon+Text&family=Luckiest+Guy&family=Noto+Serif:ital,wght@1,300&family=Patua+One&family=Red+Hat+Display&family=Roboto+Slab&family=Rubik:ital,wght@0,400;1,300&family=Sarabun:wght@200;300&family=Titan+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Almarai&family=Belanosima&family=Comfortaa&family=DM+Sans:opsz,wght@9..40,300&family=Dancing+Script:wght@400;500&family=Libre+Caslon+Text&family=Luckiest+Guy&family=Noto+Serif:ital,wght@1,300&family=Patua+One&family=Poppins&family=Red+Hat+Display&family=Roboto+Slab&family=Rubik:ital,wght@0,400;1,300&family=Sarabun:wght@200;300&family=Titan+One&display=swap");
+
+#itemName {
+  font-family: "Comfortaa", sans-serif;
+  /* font-family: "Sarabun", sans-serif; */
+  /* font-family: "Poppins", sans-serif; */
+}

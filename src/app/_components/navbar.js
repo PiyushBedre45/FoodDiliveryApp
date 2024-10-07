@@ -38,7 +38,7 @@ const Navbar = () => {
                         <div className='flex list-none gap-7 '>
                             <li className='text-xl cursor-pointer'>Home</li>
                             <li className='text-xl cursor-pointer'>About</li>
-                            <li className='text-xl cursor-pointer'>Items</li>
+                            <Link href={'/dashboard'}><li className='text-xl cursor-pointer'>Dashboard</li></Link>
                             <li className='text-xl cursor-pointer'>Help</li>
                         </div>
                     </div>

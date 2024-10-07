@@ -1,16 +1,10 @@
 'use client'
-import Link from "next/link";
 import Navbar from "./_components/navbar";
-import { usePathname, useRouter } from "next/navigation";
-import AddFoodItems from "./_components/addFoodItems";
-import RestoRegister from "./_components/restoRegister";
-import Dashboard from "./_components/dashboard";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Home() {
-  const pathName = usePathname();
-  const [select, setSelect] = useState(false);
 
   // Location Select Box
   const [location, setLocation] = useState([]);
@@ -54,18 +48,9 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
-      <button onClick={() => setSelect(!select)}>
-        {
-          select ? "Dashboard" : "Add product"
-        }
-      </button>
-      {
-        select ? (<AddFoodItems />) : (<Dashboard />)
-      }
       <div className="w-full h-[500px] mt-10">
         <div className="w-[95%] mx-auto h-full relative flex items-center justify-center">
-          <div className="absolute bg-[#2b2b2b6a]  w-full h-full" ></div>
+          <div className="absolute bg-[#2b2b2b6a] rounded-md w-full h-full" ></div>
           <h1 className="absolute top-[70px] font-bold text-white text-5xl">Food Delivery App</h1>
           <div className=" w-[60%] h-[50px] flex items-center justify-center absolute  gap-1">
             <input onClick={() => setShowLocations(!showLocations)} className="w-[35%] h-full pl-10 rounded-md" type="text"
@@ -96,7 +81,7 @@ export default function Home() {
           {
             restaurents.map((resto, index) => (
               <>
-                <div className=' bg-[#ffcaca]' onClick={() => router.push(`explore/${resto.name}`)}>
+                <div className=' bg-[#ffcaca]' onClick={() => router.push(`explore/${resto.name}?id=${resto._id}`)}>
                   <h1>{resto.name}</h1>
                   <h2>{resto.phone}</h2>
                   <h2>{resto.city}</h2>
