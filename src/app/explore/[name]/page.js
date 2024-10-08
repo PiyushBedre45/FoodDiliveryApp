@@ -47,29 +47,36 @@ const RestoExlore = (props) => {
                     <h1>{restaurentDetails.address}</h1>
                 </div>
             </div>
-            <div className="relative w-[85%] mx-auto h-[65vh] border border-black flex flex-wrap gap-3">
-                {
-                    foodDetails.map((foodItem, index) => (
-                        <>
-                            <div className="w-[280px] h-[400px] mx-auto border border-red-500 flex flex-col justify-center mt-[40px]">
-                                <div className="relative border border-[#929292] shadow-xl w-[280px] h-[330px] flex justify-center items-center rounded-md mt-[40px]">
-                                    <div className="top-[-15%] absolute  w-[220px] h-[200px]">
-                                        <img className="w-full h-full object-cover rounded-md" src={foodItem.image} alt="" />
+            {/* Heading */}
+            <div className="w-full mt-[20px]">
+                <div className=" w-[90%] mx-auto h-[80px] flex items-center justify-center">
+                    <h1 id="resto-heading" className="text-4xl font-semibold">{restaurentDetails.name} MENU</h1>
+                </div>
+            </div>
+            {/* Food Items Maped */}
+            <div className="w-full h-full mt-[20px] ">
+                <div className="w-[95%] mx-auto h-full  flex flex-wrap items-center gap-3 ">
+                    {foodDetails.map((foodItem, index) => (
+                        <div className=" shadow-md border border-[#929292] w-[350px] h-[440px] rounded-md">
+                            <div className=" w-[350px] h-[300px] flex flex-col gap-3 " >
+                                <img
+                                    className="w-[90%] mx-auto h-full object-cover mt-[20px] rounded-md"
+                                    src={foodItem.image}
+                                    alt="loading"
+                                />
+                                <div className=" flex flex-col w-[90%] mx-auto gap-2">
+                                    {/* <p className="text-red-800 ">Bestseller</p> */}
+                                    <div className="w-full flex justify-between items-center h-[55px]">
+                                        <h1 id="itemName" className="text-lg w-[70%] h-full ">{foodItem.name}  </h1>
+                                        <h1 id="price" className=" font-semibold text-lg w-[30%] h-full pl-10">₹ {foodItem.price}</h1>
                                     </div>
-                                    <div className="bottom-0 absolute  w-[220px] h-[160px] flex flex-col gap-2">
-                                        <div>
-                                            <h1 id="itemName" className="text-xl font-semibold">Chicken Box</h1>
-                                            <h1 className="text-[16px] ">Crisp chicken with Coke</h1>
-                                        </div>
-                                        <h1 className="text-xl font-semibold ">200 ₹</h1>
-                                        <button className=" bg-[#f98d8d] rounded-sm w-[50%] h-[30px] text-white text-[18px] font-semibold">Add</button>
-                                    </div>
+                                    {/* <p className="text-gray-400 ">dsfgsdfgsfgsdf gsdg d dfgsdfgsdfgsfdgsf gdfg sdfg </p> */}
+                                    <button className=" bg-[#f98d8d] rounded-sm w-[50%] h-[30px] text-white text-[18px] font-semibold">Add</button>
                                 </div>
                             </div>
-                        </>
-                    ))
-                }
-
+                        </div>
+                    ))}
+                </div>
             </div>
         </>
     )

@@ -16,8 +16,27 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Almarai&family=Belanosima&family=Comfortaa&family=DM+Sans:opsz,wght@9..40,300&family=Dancing+Script:wght@400;500&family=Libre+Caslon+Text&family=Luckiest+Guy&family=Noto+Serif:ital,wght@1,300&family=Patua+One&family=Poppins&family=Red+Hat+Display&family=Roboto+Slab&family=Rubik:ital,wght@0,400;1,300&family=Sarabun:wght@200;300&family=Titan+One&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Anton&family=Candal&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Anton&family=Candal&family=Rubik+Mono+One&display=swap");
+
+/* heading */
+@import url("https://use.typekit.net/wgz4cft.css");
+
 #itemName {
   font-family: "Comfortaa", sans-serif;
   /* font-family: "Sarabun", sans-serif; */
   /* font-family: "Poppins", sans-serif; */
+}
+
+#resto-heading {
+  font-family: "bebas-neue-v14-deprecated", sans-serif;
+}
+
+#itemName {
+  font-family: "Allura", cursive;
+}
+
+#price {
+  font-family: "Poppins", sans-serif;
 }
